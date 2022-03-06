@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:skogstagram/utils/dimesions.dart';
+import 'package:monogramv2/utils/dimensions.dart';
 
 
 class ResponsiveLayout extends StatelessWidget {
-
   final Widget webScreenLayout;
   final Widget mobileScreenLayout;
-  const ResponsiveLayout({Key? key, required this.webScreenLayout, required this.mobileScreenLayout}) : super(key: key);
+  const ResponsiveLayout({Key? key,required this.mobileScreenLayout,required this.webScreenLayout}) :
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (context, constraints){
-        if(constraints.maxWidth > webScreenSize){
-          return webScreenLayout;
+        builder: (context, constraints){
+          if(constraints.maxWidth > webScreenSize){
+            return webScreenLayout;
+          }
+          return mobileScreenLayout;
         }
-        return mobileScreenLayout;
-      },
     );
   }
 }
